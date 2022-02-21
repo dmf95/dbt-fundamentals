@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    database: dbt-fundamentals-341902
+
+    schema: raw
+    tables:
+      - name: src_customers      
+      - name: src_orders
+        loaded_at_field: _etl_loaded_at
+        freshness:
+          warn_after: {count: 12, period: hour}
+          error_after: {count: 24, period: hour}
+      - name: src_payment

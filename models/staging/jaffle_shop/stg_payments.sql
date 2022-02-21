@@ -8,4 +8,6 @@ select
     amount / 100 as amount,
     created as created_at
 
-from dbt-tutorial.stripe.payment 
+--from `dbt-fundamentals-341902.raw.src_payment`
+from {{ source('jaffle_shop', 'src_payment') }}
+

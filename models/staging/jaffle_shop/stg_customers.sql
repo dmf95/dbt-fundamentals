@@ -3,4 +3,6 @@ select
     first_name,
     last_name
 
-from dbt-tutorial.jaffle_shop.customers
+--from `dbt-fundamentals-341902.raw.src_customers`
+from {{ source('jaffle_shop', 'src_customers') }}
+
